@@ -1,6 +1,6 @@
 # VLC Remote Control
 
-This Python program provides a web-based remote control interface for VLC media player. It allows users to control VLC playback using a web browser from a different device.
+This Python program provides a web-based remote control interface for VLC media player. It allows users to control VLC playback from a different device using a web browser.
 
 <p align="center">
   <img width="200"  src="img/screenshot.jpg">
@@ -15,7 +15,7 @@ This Python program provides a web-based remote control interface for VLC media 
 ## Features
 - Play, pause, volume control, move forward and back, full-screen and quit functionalities.
 - Customizable shortcuts for VLC commands.
-- User-friendly web interface.
+- User-friendly web interface (heavily inspired by the [Apple TV Remote](https://support.apple.com/en-gb/HT201664#setup)).
 
 ## Prerequisites
 - Python 3.x
