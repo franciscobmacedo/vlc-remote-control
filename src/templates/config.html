@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VLC remote control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet" />
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+  </style>
+  <body class=" touch-manipulation bg-neutral-900 text-neutral-400 p-5 flex h-[80%] justify-center items-center ">
+    <div class="max-w-md container mx-auto">
+      <div class="text-center tracking-wide">
+        <a class="underline" href="/">VLC REMOTE CONTROL</a>
+      </div>
+      <div class="text-center text-sm mt-10">
+        <p>Update the commands to match your VLC shortcuts.</p>
+        <a target="_blank"
+           href="https://www.vlchelp.com/vlc-media-player-shortcuts/"
+           class="underline">help</a>
+      </div>
+      <div class="w-full shadow-md rounded">
+        <form method="post"
+              enctype="multipart/form-data"
+              class="px-8 pt-6 mb-4 text-neutral-200">
+          {% for name, shortcut in shortcuts.items() %}
+            <div class="mb-4">
+              <label class="block  text-sm font-bold mb-2" for="{{ name }}">{{ name }}</label>
+              <input class="bg-neutral-900 border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                     id="{{ name }}"
+                     name="{{ name }}"
+                     type="text"
+                     value="{{ shortcut }}">
+            </div>
+          {% endfor %}
+          <button class="w-full bg-neutral-800 text-neutral-200 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                  name="save"
+                  value="save">Save</button>
+          <button class="w-full bg-neutral-800 text-neutral-200  font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                  name="reset"
+                  value="reset">Reset</button>
+        </form>
+        <div class="text-center">
+          <a class="text-sm hover:underline focus:underline" href="/"><< back to remote</a>
+        </div>
+      </div>
+    </div>
+    {% if message %}
+      <div class="fixed top-3"
+           x-data="{show: true}"
+           x-show="show"
+           x-init="setTimeout(() => show = false, 2000)">
+        <div id="toast-default"
+             class="flex items-center w-full max-w-xs p-4 bg-neutral-600 text-white rounded-lg shadow "
+             role="alert">
+          <div class="ml-3 text-sm font-normal">{{ message }}</div>
+          <button type="button"
+                  x-on:click="show = false"
+                  class="ml-auto -mx-1.5 -my-1.5  text-gray-500 hover:text-gray-300 rounded-lg  p-1.5  inline-flex items-center justify-center h-8 w-8 "
+                  data-dismiss-target="#toast-default"
+                  aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3"
+                 aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    {% endif %}
+  </body>
+</html>

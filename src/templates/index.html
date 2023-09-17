@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VLC remote control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet" />
+  </head>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+  </style>
+  <body class=" touch-manipulation bg-neutral-900 text-neutral-400 p-5 flex h-[80%] justify-center items-center ">
+    <div class="max-w-md container mx-auto">
+      <div class="flex flex-col space-y-2 text-center tracking-wide">
+        <a class="underline" href="/">VLC REMOTE CONTROL</a>
+        <a class="text-sm hover:underline focus:underline" href="/config">config</a>
+      </div>
+      <div class="bg-neutral-800 h-96 mt-10 rounded-3xl flex justify-between">
+        <button id="move-back"
+                data-action="move_back"
+                data-long="true"
+                class="px-5 pb-5 flex flex-col justify-end">
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
+            </svg>
+            <span class="text-xs ml-1">10</span>
+          </div>
+        </button>
+        <button id="play-pause"
+                class="w-full flex justify-center items-center"
+                data-action="play_pause"
+                data-long="false">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke-width="1.5"
+               stroke="currentColor"
+               class="w-12 h-12">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+          </svg>
+        </button>
+        <button id="move-forward"
+                class="px-5 pb-5 flex flex-col justify-end"
+                data-action="move_forward"
+                data-long="true">
+          <div class="flex items-center">
+            <span class="text-xs mr-1">10</span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
+            </svg>
+          </div>
+        </button>
+      </div>
+      <div class="flex justify-between mt-5 h-34">
+        <div class="flex flex-col">
+          <button id="full-screen"
+                  data-action="fullscreen"
+                  data-long="false"
+                  class="p-5 bg-neutral-800 rounded-full h-16">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+            </svg>
+          </button>
+          <button class="p-5 bg-neutral-800 rounded-full h-16 mt-2"
+                  id="quit"
+                  data-action="quit"
+                  data-long="false">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+            </svg>
+          </button>
+        </div>
+        <div class=" p-5 bg-neutral-800 rounded-full h-34 flex flex-col justify-between items-center ">
+          <button id="volume-up" data-action="volume_up" data-long="true">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+          </button>
+          <button class="" id="mute" data-action="mute" data-long="false">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+            </svg>
+          </button>
+          <button id="volume-down" data-action="volume_down" data-long="true">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const LONG_TIME_INTERVAL = 200;
+      let interval;
+      const runAction = (action, long) => {
+        fetch(`/action/${action}`);
+        if (long) {
+          interval = setInterval(function () {
+            fetch(`/action/${action}`);
+          }, LONG_TIME_INTERVAL);
+        }
+      };
+      const buttons = document.querySelectorAll("button");
+      for (let button of buttons) {
+        button.addEventListener("touchstart", function (event) {
+          event.preventDefault();
+          runAction(button.dataset.action, button.dataset.long == "true");
+        });
+
+        button.addEventListener("mousedown", function (event) {
+          event.preventDefault();
+          runAction(button.dataset.action, button.dataset.long == "true");
+        });
+
+        button.addEventListener("touchend", function (event) {
+          clearInterval(interval);
+        });
+        button.addEventListener("mouseup", function (event) {
+          clearInterval(interval);
+        });
+
+        button.style.userSelect = "none";
+      }
+     
+    </script>
+  </body>
+</html>
