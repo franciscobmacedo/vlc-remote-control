@@ -54,9 +54,10 @@ pip install -r requirements.txt
 ```bash
 python run.py
 ```
+take not of the url displayed in the terminal.
 
-1. On the device that you want to use as a remote control (for example, your phone) open your web browser and navigate to http://localhost:8004.
-2. Customize the commands in the config page to match your VLC shortcuts ([see here for help on how to set them up](https://www.vlchelp.com/vlc-media-player-shortcuts/)).
+2. On the device that you want to use as a remote control (for example, your phone) open your web browser and navigate to the above mentioned url (something like http://192.168.1.92:8004). This device needs to be connected to the same wifi network.
+3. Customize the commands in the config page to match your VLC shortcuts ([see here for help on how to set them up](https://www.vlchelp.com/vlc-media-player-shortcuts/)).
 3. Use the buttons on the web interface to control the VLC media player.
 
 
