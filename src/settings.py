@@ -1,8 +1,7 @@
-from typing import Optional
-
 PORT = 8004
 
 DB = "src/db.json"
+
 DEFAULT_SHORTCUTS = {
     "play_pause": "space",
     "fullscreen": "command+f",
@@ -12,5 +11,5 @@ DEFAULT_SHORTCUTS = {
     "move_forward": "right",
     "move_back": "left",
     "quit": "command+q",
-    "open_vlc": "open -a VLC"
+    "open_vlc": "open -a VLC",
 }
